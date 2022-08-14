@@ -16,12 +16,18 @@ function App() {
     }
   }
 
-  const removeTask = () => {
+  const removeTask = (id) => {
 
+    setTodos([...todos.filter((todo) => todo.id !==id)])
+ 
   }
 
   const hendlToggle = () => {
+    //setTodos([
+    //  ...todos.map((todo) => {
 
+    //  })
+   // ])
   }
   return (
     <div className="App">
