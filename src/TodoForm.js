@@ -1,10 +1,14 @@
 import {useState} from 'react'
 
-function TodoForm({addTask}) {
+function TodoForm({addTask, count}) {
+  // const addTask = propsi.addTask
+  // const count = propsi.count
+// const {addTask, count} = propsi
   const [userInput, setUserInput] = useState('')
 
   const hendleSubmit = (e) => {
     e.preventDefault()
+
     addTask(userInput)
     setUserInput('')
     }
@@ -21,7 +25,7 @@ function TodoForm({addTask}) {
 
     <form onSubmit={hendleSubmit}>
       <input
-    value={userInput}
+    value={count}
     type='text'
     onChange={hendleChange}
     onKeyDown={hendleKeyPress}

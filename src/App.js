@@ -1,14 +1,19 @@
 import { useState } from 'react';
 import Todo from './Todo';
 import TodoForm  from './TodoForm';
+import Сounters from './counter';
 
 function App() {
   const [todos, setTodos] = useState([])
+  const [count, setCount] = useState(0)
+  const addInput = (value) => {
+  setCount(value)
+  }
 
   const addTask = (userInput) => {
-    if(userInput) {
+    if (userInput) {
       const newItem = {
-        id: Math.random().toString(36).substr(2, 9),
+        id: Math.random().toString(36),
         task: userInput,
         complete: false
       }
@@ -19,7 +24,7 @@ function App() {
   const removeTask = (id) => {
 
     setTodos([...todos.filter((todo) => todo.id !==id)])
- 
+
   }
 
   const hendlToggle = () => {
@@ -34,7 +39,8 @@ function App() {
      <header>
        <h1> Task length {todos.length }</h1>
      </header>
-     <TodoForm addTask={addTask}/>
+     <Сounters addInput={addInput} />
+     <TodoForm addTask={addTask} count={count} count2={2}/>
      {todos.map((todo) => {
        return (
          <Todo
